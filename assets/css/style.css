@@ -1,0 +1,38 @@
+.weather-header {
+   background-color: #007bff;
+   color: white;
+}
+
+.weather-search {
+   flex-grow: 1;
+}
+
+.search-button {
+   margin-left: 5px;
+}
+
+.forecast-container {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.forecast-item {
+   flex: 0 0 18%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #007bff;
+   color: white;
+   margin: 10px;
+   padding: 10px;
+   border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+   .forecast-item {
+      flex: 0 0 48%; /* Adjust the size for smaller screens */
+   }
+}
+
+/* Further responsiveness and styling adjustments as needed */

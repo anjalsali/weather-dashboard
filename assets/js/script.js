@@ -42,9 +42,15 @@ function showCurrentWeather(data) {
       month: "long",
       day: "numeric",
    });
+
+   // Get the weather icon code from the data
+   const iconCode = weather[0].icon;
+   // Construct the URL for the weather icon
+   const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+
    const weatherHTML = `
         <div class="p-4 bg-dark rounded">
-        <h2>${name} (${date})</h2>
+        <h2>${name} (${date}) <img src="${iconUrl}" alt="Weather Icon"></h2>
         <p>Temperature: ${main.temp} °C</p>
         <p>Humidity: ${main.humidity}%</p>
         <p>Wind Speed: ${wind.speed} m/s</p>
@@ -64,9 +70,15 @@ function showForecast(data) {
             month: "long",
             day: "numeric",
          });
+         // Get the weather icon code from the data
+         const iconCode = item.weather[0].icon;
+         // Construct the URL for the weather icon
+         const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+
          forecastHTML += `
-                <div class="forecast-item bg-dark">
+                <div class="forecast-item">
                     <h4>${date}</h4>
+                    <img src="${iconUrl}" alt="Weather Icon">
                     <p>Temp: ${item.main.temp} °C</p>
                     <p>Wind: ${item.wind.speed} KPH</p>
                     <p>Humidity: ${item.main.humidity}%</p>

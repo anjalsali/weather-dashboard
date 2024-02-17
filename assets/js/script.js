@@ -38,11 +38,13 @@ function showCurrentWeather(data) {
    const { name, main, weather, wind } = data;
    const date = new Date().toLocaleDateString();
    const weatherHTML = `
+        <div class="p-4 bg-dark">
         <h2>${name} (${date})</h2>
         <p>Temperature: ${main.temp} °C</p>
         <p>Humidity: ${main.humidity}%</p>
         <p>Wind Speed: ${wind.speed} m/s</p>
         <p>Weather: ${weather[0].main}</p>
+         </div>
     `;
    todayEl.innerHTML = weatherHTML;
 }
@@ -79,9 +81,12 @@ function saveSearchHistory(city) {
 function updateSearchHistory() {
    let searches = JSON.parse(localStorage.getItem("searchHistory")) || [];
    let historyHTML = "";
-   searches.forEach((city) => {
-      historyHTML += `<button class="list-group-item list-group-item-action">${city}</button>`;
-   });
+   let noHistory = `<h4 class="mt-3 text-white">No Searches Yet</h4>`;
+   searches.length
+      ? searches.forEach((city) => {
+           historyHTML += `<button class="list-group-item mb-2 rounded list-group-item-action">${city}</button>`;
+        })
+      : (historyHTML = noHistory);
    historyEl.innerHTML = historyHTML;
 }
 

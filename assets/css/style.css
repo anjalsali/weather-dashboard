@@ -18,7 +18,8 @@
 }
 
 .list-group-item-action:hover {
-   background-color: #16526a !important;
+   background-color: #007bff;
+   color: white;
 }
 
 .forecast-item {
@@ -38,5 +39,3 @@
       flex: 0 0 48%; /* Adjust the size for smaller screens */
    }
 }
-
-/* Further responsiveness and styling adjustments as needed */

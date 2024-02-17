@@ -4,6 +4,10 @@
 
 This project aims to develop a user-friendly web application that functions as a weather dashboard. Users can search for the weather forecast of various cities and view both current and future weather conditions in a single, convenient interface.
 
+Image Showing Home Page of application.
+
+![Image showing home page](./assets/images/homepage.png)
+
 **Functionality:**
 
 -  Users can enter the name of a city in a search bar.

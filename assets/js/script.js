@@ -60,14 +60,13 @@ function showForecast(data) {
 
    data.list.forEach((item, index) => {
       if (index % 8 === 0) {
-         //  const date = new Date(item.dt_txt).toLocaleDateString();
          const date = new Date(item.dt_txt).toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
          });
          forecastHTML += `
                 <div class="forecast-item bg-dark">
-                    <h3>${date}</h3>
+                    <h4>${date}</h4>
                     <p>Temp: ${item.main.temp} °C</p>
                     <p>Wind: ${item.wind.speed} KPH</p>
                     <p>Humidity: ${item.main.humidity}%</p>

@@ -1,5 +1,5 @@
 .weather-header {
-   background-color: #007bff;
+   background-color: #16526a;
    color: white;
 }
 
@@ -15,6 +15,10 @@
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
+}
+
+.list-group-item-action:hover {
+   background-color: #16526a !important;
 }
 
 .forecast-item {

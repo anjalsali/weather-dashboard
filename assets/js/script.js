@@ -36,9 +36,14 @@ async function fetchForecast(lat, lon) {
 // Display current weather
 function showCurrentWeather(data) {
    const { name, main, weather, wind } = data;
-   const date = new Date().toLocaleDateString();
+   const date = new Date().toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+   });
    const weatherHTML = `
-        <div class="p-4 bg-dark">
+        <div class="p-4 bg-dark rounded">
         <h2>${name} (${date})</h2>
         <p>Temperature: ${main.temp} °C</p>
         <p>Humidity: ${main.humidity}%</p>
@@ -51,14 +56,20 @@ function showCurrentWeather(data) {
 
 // Display 5-day forecast
 function showForecast(data) {
-   let forecastHTML = '<h2>5-Day Forecast:</h2><div class="forecast-container">';
+   let forecastHTML = '<h2>5-Day Forecast</h2><div class="forecast-container">';
+
    data.list.forEach((item, index) => {
       if (index % 8 === 0) {
-         const date = new Date(item.dt_txt).toLocaleDateString();
+         //  const date = new Date(item.dt_txt).toLocaleDateString();
+         const date = new Date(item.dt_txt).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+         });
          forecastHTML += `
-                <div class="forecast-item">
+                <div class="forecast-item bg-dark">
                     <h3>${date}</h3>
                     <p>Temp: ${item.main.temp} °C</p>
+                    <p>Wind: ${item.wind.speed} KPH</p>
                     <p>Humidity: ${item.main.humidity}%</p>
                 </div>
             `;

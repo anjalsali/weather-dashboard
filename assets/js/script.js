@@ -2,6 +2,7 @@ const apiKey = "9b128ce271b8e724c9cc8522805fa085";
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 const historyEl = document.getElementById("history");
+const clearHistoryBtn = document.getElementById("clear-history");
 const todayEl = document.getElementById("today");
 const forecastEl = document.getElementById("forecast");
 
@@ -83,6 +84,11 @@ function updateSearchHistory() {
    });
    historyEl.innerHTML = historyHTML;
 }
+
+clearHistoryBtn.addEventListener("click", function () {
+   localStorage.removeItem("searchHistory"); // Clear history from storage
+   updateSearchHistory(); // Update the UI
+});
 
 // Event listener for form submission
 searchForm.addEventListener("submit", (e) => {
